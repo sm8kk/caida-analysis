@@ -1,0 +1,6 @@
+equinix-sanjose.dirA.20140619-130000.txt
+equinix-sanjose.dirA.20140619-130100.txt
+equinix-sanjose.dirA.20140619-130200.txt
+equinix-sanjose.dirA.20140619-130300.txt
+equinix-sanjose.dirA.20140619-130400.txt
+equinix-sanjose.dirA.20140619-130500.txt
