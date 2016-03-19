@@ -53,6 +53,8 @@ tmMin = int(lines[2].split(",")[19])
 minNum = int((tmMin - 1403182800000000)/600000000)
 synTmTh = 1403182800000000 + minNum * 60000000 + (60-tmGap) * 1000000
 
+tcpNum = 0
+otherNum = 0
 
 for i in range(1, len(lines)):
     l = lines[i]
@@ -64,7 +66,8 @@ for i in range(1, len(lines)):
     protocol = val[4]
     endTm = val[20]
     if (protocol == "tcpProt"):	# We check whether this flow is a TCP flow first
-        # TODO: Number of TCP flows, increment counter.
+	tcpNum = tcpNum + 1        
+
         # The we check whether it is a SYN flood attack flow
 	pktCount = int(val[6])		
 	synNum = int((val[7].split(":"))[1])
@@ -73,35 +76,40 @@ for i in range(1, len(lines)):
         byteCount = int(val[5])  
         lastSynTm = int(val[8])
         lastSynAckTm = int(val[11])
-        
-        beginTm = 0
+                
 	if (lastSynTm > lastSynAckTm and lastSynTm > 0): # Then the flow begin with the SYN packet
             byteCount = byteCount - int(val[9]) + 64
             beginTm = lastSynTm
-            synFlag = "SYN"
-        else if (lastSynAckTm > lastSynTm and lastSynAckTm > 0):
+        else if (lastSynTm < lastSynAckTm and lastSynAckTm > 0): # The flow starts with a SYN/ACK
             byteCount = byteCount - int(val[12]) + 64
             beginTm = lastSynAckTm
-            synFlag = "SYNACK"
-        else:
-            synFlag = "OLD"
-		
-        if (lastSynAckTm == "0\n" and beginTm < synTmTh and synFlag == "SYN"):#REDO: check for negative case of synAck
+	else:
+	    beginTm = 0
+	# The beginTm is the larger one between SYN and SYNACK. 
+	# If it is zero, then this flow has no SYN or SYNACK in this minute, it has started already.
+	# If it is not zero, then the flow starts in this minute (Starting with a SYN or SYNACK)	
+
+	if (lastSynAckTm == "0\n" and beginTm < synTmTh and beginTm > 0):
 	    # Then we speculate it to be a SYN attack
 	    fileTwo.write(l)
         else:
 	    # This may not be a SYN attack
-	    # For the first minute, we only consider the flows begining in this minute
+	    # Now we need to consider flows, no matter it begins in the minute or not
 	    if (beginTm > 0):
 	        SYN = 1
-		FIN = 0
-                if (finNum != 0):
-		    FIN = 1 
-		flowID = srcIP + "-" + dstIP + "-" + srcPort + "-" + dstPort
-		outputLine = flowID + "," + str(byteCount) + "," + str(pktCount) + "," + str(beginTm) + "," + endTime + "," + str(SYN) + "," + str(FIN) + "\n"
-		fileThree.write(outputLine)
+	    else:
+	        SYN = 0
+		beginTm = val[19]
+
+	    FIN = 0
+            if (finNum != 0):
+		FIN = 1 
+	
+            flowID = srcIP + "-" + dstIP + "-" + srcPort + "-" + dstPort
+	    outputLine = flowID + "," + str(byteCount) + "," + str(pktCount) + "," + str(beginTm) + "," + endTime + "," + str(SYN) + "," + str(FIN) + "\n"
+	    fileThree.write(outputLine)
     else:
-        #TODO: counter for other flows
+        otherNum = otherNum + 1
 
 fileTwo.close()
 fileThree.close()
