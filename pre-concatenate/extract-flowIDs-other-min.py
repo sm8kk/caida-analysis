@@ -10,7 +10,9 @@ and select out those flows which are likely to be a SYN flood attack
 
 '''
 Author: Sourav, Austin
+
 Created on: March 10th
+Last modified on: Match 11th
 '''
 
 '''
@@ -23,7 +25,8 @@ srcIP,srcPort,dstIP,dstPort,protocol,byteCount,pktCount,SYN,lastSynTm,bytesLastS
 output file is in the format:
 FlowID,byteCount,pktCount,beginTm,endTm,SYN,FIN
 
-Identifies TCP flows which has a begining; TCP flows can either start with a SYN or SYN/ACK.
+Identifies all TCP flows, no matter it starts in this minute or not
+
 Also find when a TCP flow ends, which is indicated by the FIN flag. Otherwise, its the
 packet with last timestamp.
 
@@ -44,14 +47,19 @@ fileTwo = open(sys.argv[2], 'w')
 # This fileTwo will record all the SYN flood attack flowID
 
 fileThree = open(sys.argv[3], 'w')
-fileThree.write("FlowID,bytes,pkts,beginTime,endTime,SYN,FIN\n")
-# This flowThree will record all the flow left for future concatenating. 
+fileThree.write("FlowID,bytes,pkts,beginTime,endTime,SYN,SYNACK,FIN\n")
+# This fileThree will record all the flow ending in this minute, i.e FIN = 1 
 
-tmGap = int(sys.argv[4])
+fileFour = open(sys.argv[4], 'w')
+fileFour.write("FlowID,bytes,pkts,beginTime,endTime,SYN,SYNACK,FIN\n")
+# This fileFour will record all the flow left for further concatenating, i.e FIN = 0
+
+tmGap = int(sys.argv[5])
 
 tmMin = int(lines[2].split(",")[19])
-minNum = int((tmMin - 1403182800000000)/600000000)
+minNum = int((tmMin - 1403182800000000)/60000000)
 synTmTh = 1403182800000000 + minNum * 60000000 + (60-tmGap) * 1000000
+
 
 tcpNum = 0
 otherNum = 0
@@ -61,13 +69,12 @@ for i in range(1, len(lines)):
     val = l.split(",")
     srcIP = val[0]
     srcPort = val[1]
-    dstIp = val[2]
+    dstIP = val[2]
     dstPort = val[3]
     protocol = val[4]
     endTm = val[20]
-    if (protocol == "tcpProt"):	# We check whether this flow is a TCP flow first
-	tcpNum = tcpNum + 1        
-
+    if (int(protocol) == tcpProt):	# We check whether this flow is a TCP flow first
+        tcpNum = tcpNum + 1
         # The we check whether it is a SYN flood attack flow
 	pktCount = int(val[6])		
 	synNum = int((val[7].split(":"))[1])
@@ -76,40 +83,60 @@ for i in range(1, len(lines)):
         byteCount = int(val[5])  
         lastSynTm = int(val[8])
         lastSynAckTm = int(val[11])
-                
+        
+        beginTm = 0
 	if (lastSynTm > lastSynAckTm and lastSynTm > 0): # Then the flow begin with the SYN packet
             byteCount = byteCount - int(val[9]) + 64
             beginTm = lastSynTm
-        else if (lastSynTm < lastSynAckTm and lastSynAckTm > 0): # The flow starts with a SYN/ACK
+            synFlag = "SYN"
+        elif (lastSynAckTm > lastSynTm and lastSynAckTm > 0):
             byteCount = byteCount - int(val[12]) + 64
             beginTm = lastSynAckTm
-	else:
-	    beginTm = 0
-	# The beginTm is the larger one between SYN and SYNACK. 
-	# If it is zero, then this flow has no SYN or SYNACK in this minute, it has started already.
-	# If it is not zero, then the flow starts in this minute (Starting with a SYN or SYNACK)	
-
-	if (lastSynAckTm == "0\n" and beginTm < synTmTh and beginTm > 0):
+            synFlag = "SYNACK"
+        else:
+            synFlag = "OLD"
+		
+        if (synAckTmInt == "0\n" and beginTm < synTmTh and synFlag == "SYN"):#REDO: check for negative case of synAck
 	    # Then we speculate it to be a SYN attack
 	    fileTwo.write(l)
         else:
 	    # This may not be a SYN attack
-	    # Now we need to consider flows, no matter it begins in the minute or not
+	    # We consider all flows, no matter it starts in this minute or not.
 	    if (beginTm > 0):
 	        SYN = 1
 	    else:
-	        SYN = 0
-		beginTm = val[19]
-
-	    FIN = 0
+		SYN = 0
+		beginTm = int(val[19]) # Because this flow has already started, we should assign it a beginTm from the C++ output
+		
+	    if (synFlag == "SYN"):
+		SYN_SYNACK = "1,0"
+	    elif (synFlag == "SYNACK"):
+		SYN_SYNACK = "0,1"
+	    else:
+		SYN_SYNACK = "0,0"
+	    
             if (finNum != 0):
-		FIN = 1 
+		FIN = 1
+	    else:
+		FIN = 0
+
+   	    flowID = srcIP + "-" + dstIP + "-" + srcPort + "-" + dstPort
+
 	
-            flowID = srcIP + "-" + dstIP + "-" + srcPort + "-" + dstPort
-	    outputLine = flowID + "," + str(byteCount) + "," + str(pktCount) + "," + str(beginTm) + "," + endTime + "," + str(SYN) + "," + str(FIN) + "\n"
-	    fileThree.write(outputLine)
+            if (FIN == 1 and synFlag != "OLD"): # The flow ended in this minute, output it to 
+		outputLine = flowID + "," + str(byteCount) + "," + str(pktCount) + "," + str(beginTm) + "," + endTm + "," + SYN_SYNACK + "," + str(FIN) + "\n"
+	  	fileThree.write(outputLine)
+	    else:
+		outputLine = flowID + "," + str(byteCount) + "," + str(pktCount) + "," + str(beginTm) + "," + endTm + "," + SYN_SYNACK + "," + str(FIN) + "\n"
+                fileFour.write(outputLine)
     else:
         otherNum = otherNum + 1
 
 fileTwo.close()
 fileThree.close()
+fileFour.close()
+
+print " The minuite is: " + str(minNum) + "\n"
+print " The threshold is " + str(synTmTh) + "\n"
+print " The number of TCP flow is: " + str(tcpNum) + "\n"
+print " The number of other flow is: " + str(otherNum) + "\n" 
