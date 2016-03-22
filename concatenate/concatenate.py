@@ -1,131 +1,163 @@
 # -*- coding: utf-8 -*-
-"""
-@author: souravmaji
-"""
+from __future__ import division
 import sys
 
-# Open the file
-f = open(str(sys.argv[1]), 'r')
+'''
+This program is used for concatenating the flow of the new minute to the result of minutes before
+'''
 
-# Read ALL the lines (you can also iterate if you like)
-# Each line is stored as an element of the "list" lines
-lines = f.readlines()
 
-# Close the file
-f.close()
+'''
+Author: Sourav, Austin
+Created on: Marth 20th
+'''
 
-# Parse the lines and creates a dictionary where the key is given by the hash
-# of the first 5 fields and the value a list of all the fields. Also create a
-# set of the hashes. This method relies on a 1-to-1 correspondence between the
-# hash and the data in the first 5 fields which might not be assured. You might
-# what to check other hashing options (hashlib).
+
+
+'''
+We have two input files, which are the flows continuing from minutes before and the new minute
+The are in the format of:
+FlowID,bytes,pkts,beginTime,endTime,SYN,SYNACK,FIN
+90.92.84.195-232.182.6.134-22-62818,158105812,105647,1403182843307062,1403182859997842,0,1,0
+90.92.84.167-56.146.229.68-22-65166,155513356,108354,1403182840140298,1403182859996938,0,1,0
+181.39.159.122-51.13.80.108-5647-54058,61203352,40700,1403182804810007,1403182859981830,0,1,0
+
+
+We have two output files, one is the completed flow, the other is the not completed flow.
+The input parameter is the timeGap we set.
+'''
+
+
+with open(sys.argv[1], 'r') as fileOne:
+	linesOne = fileOne.readlines()
+
+# Create the dictionary and set of the 0 minute:
+data0 = {}
+data_set0 = set()
+
+for i in range(1,len(linesOne)):
+	l = linesOne[i]
+	val = l.split(",")
+	flowID = val[0]
+	data_set0.add(flowID)
+	data0[flowID] = val
+
+
+
+with open(sys.argv[2], 'r') as fileTwo:
+	linesTwo = fileTwo.readlines()
+
+# Create the dictionary and set of the 1 minute:
 data1 = {}
 data_set1 = set()
-for l in lines:  # For every line in the file
-    values = l.split()  # Create a tuple (immutable list) from the fields
-    h = values[0]+values[1]+values[2]+values[3]+values[4]
-#    h = hash(values[:5])  # Evaluate the hash (unique in this direction) from the first 5 fields
-    data_set1.add(h)  # Add the hash to the set
-    data1[h] = values  # Add the data to the dictionary using the hash as index
 
-#print('\n--- Data1 ---')
-#print(data1)
-
-f = open(str(sys.argv[2]), 'r')
-lines = f.readlines()
-f.close()
-
-data2 = {}
-data_set2 = set()
-for l in lines:
-    values = l.split()  # Create a tuple (immutable list) from the fields
-    h = values[0]+values[1]+values[2]+values[3]+values[4]
-    data_set2.add(h)
-    data2[h] = values
-
-#print('\n--- Data2 ---')
-#print(data2)
-
-data3 = {}
-
-# file1 is the first 'n' packets
-# file2 is the next 'm' packets
-# data3 is the combined flow record
-# for simplicity we do not check a time bound for a flow
-
-# fill flow data from previous packets
-j = 0
-file1_diff_file2 = data_set1 - data_set2
-for i in file1_diff_file2:
-    data3[j] = data1[i]
-    j = j + 1
-    
-k = j
-print('\n -- Data1 part of data3 :')
-print(j)    
-#print('\n--- Common data ---')
-
-# flows from the previous minute that match the flowID's in the current minute.
-# For the common_set the following cases has to be checked:
-# (i) Since it is common data, it means that the flow begining has already been found
-# so, we update the byteCount, pktCount, endTm and maybe the FIN flag.
-# (ii) While updating if a FIN is observed, the flow should be ended. Print out
-# FIN terminated end flows.
-# (iii) A timeout of a flow can be seen after it is inactive for sometime (~60 seconds)
-# timeout-terminated-flows.
-# Anomalous cases:
-# (i) In the i th minute, if no FIN is seen, but in the (i+1) th minute a SYN or SYN/ACK is seen.
-# How do we handle such flows?
-# (ii) In the i th minute, if no FIN is seen, but in the (i+1) th minute a RST is seen.
-
-# TODO: Incorporate all these conditions in this check
-common_set = data_set1 & data_set2  # Evaluate the intersection of the hash sets
-for i in common_set:  # For each element in the intersection, print the data form the two sets
-    data3[j] = data1[i]
-    data3[j][5] = str(long(data1[i][5]) + long(data2[i][5]))
-    data3[j][6] = str(long(data1[i][6]) + long(data2[i][6]))
-    data3[j][8] = data2[i][8] # update the last timestamp
-    data3[j][9] =str(max((long(data1[i][9])), (long(data2[i][9]))))
-    data3[j][10] =str(min((long(data1[i][10])), (long(data2[i][10]))))
-    data3[j][11] = str(long(data1[i][11]) + long(data2[i][11]))
-    data3[j][12] = str(long(data1[i][12]) + long(data2[i][12]))
-    data3[j][13] = str(long(data1[i][13]) + long(data2[i][13]))
-    data3[j][14] = str(long(data1[i][14]) + long(data2[i][14]))
-    data3[j][15] = str(long(data1[i][15]) + long(data2[i][15]))
-    data3[j][16] = str(long(data1[i][16]) + long(data2[i][16]))
-    data3[j][17] = str(long(data1[i][17]) + long(data2[i][17]))
-    data3[j][18] = str(long(data1[i][18]) + long(data2[i][18]))
-    data3[j][19] = str(long(data1[i][19]) + long(data2[i][19]))
-    data3[j][20] = str(long(data1[i][20]) + long(data2[i][20]))
-    data3[j][21] = str(long(data1[i][21]) + long(data2[i][21]))
-    data3[j][22] = str(long(data1[i][22]) + long(data2[i][22]))
-    data3[j][23] = str(long(data1[i][23]) + long(data2[i][23]))
-    data3[j][24] = str(long(data1[i][24]) + long(data2[i][24]))
-    data3[j][25] = str(long(data1[i][25]) + long(data2[i][25]))
-    data3[j][26] = str(long(data1[i][26]) + long(data2[i][26]))
-    
-    j = j + 1
-    #print(data2[i])
-    #print('---')
-
-l = j
-print('\n -- common part of data3 :')
-print(j - k)    
-
-file2_diff_file1 = data_set2 - data_set1
-for i in file2_diff_file1:
-    data3[j] = data2[i]
-    j = j + 1
+for i in range(1,len(linesTwo)):
+	l = linesTwo[i]
+	val = l.split(",")
+	flowID = val[0]
+	data_set1.add(flowID)
+	data1[flowID] = val
 
 
-print('\n -- Data2 part of data3 :')
-print(j - l)
-    
-#print('\n-- Data3 --')
-#print(data3)
+tmMin = int(linesTwo[2].split(",")[4])
+minNum = int((tmMin - 1403182800000000)/60000000)
+lastTS = 1403182800000000 + (minNum + 1) * 60000000  
 
-import csv
+fileThree = open(sys.argv[3], 'w') 
+fileThree.write("flowID,byteCount,pkts,beginTm,endTm,SYN,SYNACK,FIN\n")
+# We will put flow finished to this fileThree
 
-with open(sys.argv[3], 'wb') as f:  # Just use 'w' mode in 3.x
-   w = csv.writer(f, delimiter=' ', quotechar=' ')
-   w.writerows(data3.values())
+
+
+fileFour = open(sys.argv[4], 'w')
+fileFour.write("flowID,byteCount,pkts,beginTm,endTm,SYN,SYNACK,FIN\n")
+# We will put flow not finished to this fileFour
+
+
+timeGap = int(sys.argv[5]) * 1000000
+# This time gap is for further discussion of data_set0 - data_set1
+
+
+
+
+# Now we look into three cases:
+# Case1: The flow in both 0min and 1min
+
+for commonID in data_set0 & data_set1:
+	bytesCount = int(data0[commonID][1]) + int(data1[commonID][1])
+	pkts = int(data0[commonID][2]) + int(data1[commonID][2]) 
+	beginTm = data0[commonID][3]
+	endTm = data1[commonID][4]
+	SYN = data0[commonID][5]
+	SYNACK = data0[commonID][6]
+	FIN = data1[commonID][7]
+	outputline = commonID + "," + str(bytesCount) + "," + str(pkts) + "," + beginTm + "," + endTm + "," + SYN + "," + SYNACK + "," + FIN
+	if (FIN == "1\n"): # Then we know that this flow ends in the later minute
+		fileThree.write(outputline)
+	else:
+		fileFour.write(outputline)
+
+for laterID in data_set1 - data_set0:
+	flowID = data1[laterID][0]
+        byteCount = data1[laterID][1]
+        pkts = data1[laterID][2]
+        beginTm = data1[laterID][3]
+        endTm = data1[laterID][4]
+       	SYN = data1[laterID][5]
+        SYNACK = data1[laterID][6]
+        FIN = data1[laterID][7]
+	if (SYN == "1" or SYNACK == "1"):
+		outputline = flowID + "," + byteCount + "," + pkts + "," + beginTm + "," + endTm + "," + SYN + "," + SYNACK + "," + FIN
+		fileFour.write(outputline)
+
+for formerID in data_set0 - data_set1:
+	flowID = data0[formerID][0]
+        byteCount = data0[formerID][1]
+        pkts = data0[formerID][2]
+        beginTm = data0[formerID][3]
+        endTm = data0[formerID][4]
+        SYN = data0[formerID][5]
+        SYNACK = data0[formerID][6]
+        FIN = data0[formerID][7]
+	outputline = flowID + "," + byteCount + "," + pkts + "," + beginTm + "," + endTm + "," + SYN + "," + SYNACK + "," + FIN
+	if (int(endTm) + timeGap > lastTS):
+                fileFour.write(outputline)
+	else:
+		fileThree.write(outputline)
+
+
+
+
+fileThree.close()
+fileFour.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
