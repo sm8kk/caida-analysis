@@ -1,0 +1,300 @@
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133100.UTC.anon-40938357.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133100.UTC.anon-40938357.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133100_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133100_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133100_nc.txt 5
+ The minuite is: 31
+
+ The threshold is 1403184715000000
+
+ The number of TCP flow is: 1479960
+
+ The number of other flow is: 315110
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133200.UTC.anon-41317743.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133200.UTC.anon-41317743.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133200_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133200_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133200_nc.txt 5
+ The minuite is: 32
+
+ The threshold is 1403184775000000
+
+ The number of TCP flow is: 1476171
+
+ The number of other flow is: 306472
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133300.UTC.anon-41419020.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133300.UTC.anon-41419020.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133300_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133300_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133300_nc.txt 5
+ The minuite is: 33
+
+ The threshold is 1403184835000000
+
+ The number of TCP flow is: 1467401
+
+ The number of other flow is: 312084
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133400.UTC.anon-41979704.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133400.UTC.anon-41979704.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133400_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133400_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133400_nc.txt 5
+ The minuite is: 34
+
+ The threshold is 1403184895000000
+
+ The number of TCP flow is: 1463353
+
+ The number of other flow is: 310656
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133500.UTC.anon-42520268.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133500.UTC.anon-42520268.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133500_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133500_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133500_nc.txt 5
+ The minuite is: 35
+
+ The threshold is 1403184955000000
+
+ The number of TCP flow is: 1481501
+
+ The number of other flow is: 317486
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133600.UTC.anon-43065459.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133600.UTC.anon-43065459.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133600_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133600_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133600_nc.txt 5
+ The minuite is: 36
+
+ The threshold is 1403185015000000
+
+ The number of TCP flow is: 1467418
+
+ The number of other flow is: 315692
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133700.UTC.anon-42833618.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133700.UTC.anon-42833618.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133700_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133700_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133700_nc.txt 5
+ The minuite is: 37
+
+ The threshold is 1403185075000000
+
+ The number of TCP flow is: 1445350
+
+ The number of other flow is: 308967
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133800.UTC.anon-42467229.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133800.UTC.anon-42467229.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133800_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133800_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133800_nc.txt 5
+ The minuite is: 38
+
+ The threshold is 1403185135000000
+
+ The number of TCP flow is: 1447821
+
+ The number of other flow is: 311609
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133900.UTC.anon-42827684.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-133900.UTC.anon-42827684.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/133900_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/133900_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/133900_nc.txt 5
+ The minuite is: 39
+
+ The threshold is 1403185195000000
+
+ The number of TCP flow is: 1435011
+
+ The number of other flow is: 316518
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134000.UTC.anon-43082978.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134000.UTC.anon-43082978.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134000_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134000_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134000_nc.txt 5
+ The minuite is: 40
+
+ The threshold is 1403185255000000
+
+ The number of TCP flow is: 1435207
+
+ The number of other flow is: 319656
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134100.UTC.anon-42667737.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134100.UTC.anon-42667737.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134100_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134100_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134100_nc.txt 5
+ The minuite is: 41
+
+ The threshold is 1403185315000000
+
+ The number of TCP flow is: 1422788
+
+ The number of other flow is: 321582
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134200.UTC.anon-43235049.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134200.UTC.anon-43235049.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134200_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134200_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134200_nc.txt 5
+ The minuite is: 42
+
+ The threshold is 1403185375000000
+
+ The number of TCP flow is: 1454206
+
+ The number of other flow is: 318687
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134300.UTC.anon-42786380.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134300.UTC.anon-42786380.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134300_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134300_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134300_nc.txt 5
+ The minuite is: 43
+
+ The threshold is 1403185435000000
+
+ The number of TCP flow is: 1423888
+
+ The number of other flow is: 322305
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134400.UTC.anon-42928995.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134400.UTC.anon-42928995.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134400_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134400_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134400_nc.txt 5
+ The minuite is: 44
+
+ The threshold is 1403185495000000
+
+ The number of TCP flow is: 1450046
+
+ The number of other flow is: 328499
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134500.UTC.anon-42634820.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134500.UTC.anon-42634820.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134500_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134500_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134500_nc.txt 5
+ The minuite is: 45
+
+ The threshold is 1403185555000000
+
+ The number of TCP flow is: 1456489
+
+ The number of other flow is: 339299
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134600.UTC.anon-43821642.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134600.UTC.anon-43821642.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134600_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134600_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134600_nc.txt 5
+ The minuite is: 46
+
+ The threshold is 1403185615000000
+
+ The number of TCP flow is: 1489059
+
+ The number of other flow is: 326870
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134700.UTC.anon-43380654.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134700.UTC.anon-43380654.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134700_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134700_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134700_nc.txt 5
+ The minuite is: 47
+
+ The threshold is 1403185675000000
+
+ The number of TCP flow is: 1433491
+
+ The number of other flow is: 328859
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134800.UTC.anon-43083195.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134800.UTC.anon-43083195.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134800_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134800_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134800_nc.txt 5
+ The minuite is: 48
+
+ The threshold is 1403185735000000
+
+ The number of TCP flow is: 1432711
+
+ The number of other flow is: 327347
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134900.UTC.anon-42926988.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-134900.UTC.anon-42926988.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/134900_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/134900_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/134900_nc.txt 5
+ The minuite is: 49
+
+ The threshold is 1403185795000000
+
+ The number of TCP flow is: 1444347
+
+ The number of other flow is: 328875
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135000.UTC.anon-42558936.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135000.UTC.anon-42558936.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135000_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135000_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135000_nc.txt 5
+ The minuite is: 50
+
+ The threshold is 1403185855000000
+
+ The number of TCP flow is: 1417295
+
+ The number of other flow is: 333015
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135100.UTC.anon-43441680.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135100.UTC.anon-43441680.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135100_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135100_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135100_nc.txt 5
+ The minuite is: 51
+
+ The threshold is 1403185915000000
+
+ The number of TCP flow is: 1450254
+
+ The number of other flow is: 332449
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135200.UTC.anon-43361857.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135200.UTC.anon-43361857.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135200_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135200_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135200_nc.txt 5
+ The minuite is: 52
+
+ The threshold is 1403185975000000
+
+ The number of TCP flow is: 1416236
+
+ The number of other flow is: 326499
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135300.UTC.anon-43153423.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135300.UTC.anon-43153423.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135300_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135300_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135300_nc.txt 5
+ The minuite is: 53
+
+ The threshold is 1403186035000000
+
+ The number of TCP flow is: 1436843
+
+ The number of other flow is: 329794
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135400.UTC.anon-43881897.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135400.UTC.anon-43881897.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135400_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135400_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135400_nc.txt 5
+ The minuite is: 54
+
+ The threshold is 1403186095000000
+
+ The number of TCP flow is: 1477863
+
+ The number of other flow is: 331981
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135500.UTC.anon-43757267.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135500.UTC.anon-43757267.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135500_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135500_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135500_nc.txt 5
+ The minuite is: 55
+
+ The threshold is 1403186155000000
+
+ The number of TCP flow is: 1484484
+
+ The number of other flow is: 371120
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135600.UTC.anon-44691635.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135600.UTC.anon-44691635.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135600_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135600_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135600_nc.txt 5
+ The minuite is: 56
+
+ The threshold is 1403186215000000
+
+ The number of TCP flow is: 1488057
+
+ The number of other flow is: 346054
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135700.UTC.anon-43177844.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135700.UTC.anon-43177844.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135700_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135700_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135700_nc.txt 5
+ The minuite is: 57
+
+ The threshold is 1403186275000000
+
+ The number of TCP flow is: 1490145
+
+ The number of other flow is: 330794
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135800.UTC.anon-44230858.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135800.UTC.anon-44230858.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135800_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135800_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135800_nc.txt 5
+ The minuite is: 58
+
+ The threshold is 1403186335000000
+
+ The number of TCP flow is: 1512264
+
+ The number of other flow is: 335558
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135900.UTC.anon-45082479.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-135900.UTC.anon-45082479.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/135900_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/135900_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/135900_nc.txt 5
+ The minuite is: 59
+
+ The threshold is 1403186395000000
+
+ The number of TCP flow is: 1559315
+
+ The number of other flow is: 339390
+
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-140000.UTC.anon-45746619.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-other-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-140000.UTC.anon-45746619.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/140000_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/140000_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/140000_nc.txt 5
+ The minuite is: 60
+
+ The threshold is 1403186455000000
+
+ The number of TCP flow is: 1571051
+
+ The number of other flow is: 348804
+

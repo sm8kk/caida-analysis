@@ -1,0 +1,4 @@
+[1] "../../caida-analysis-results/completedFlow/srdRttBoundedFlows.txt"
+[1] "RTT statistics:"
+      0%      25%      50%      75%      90%      95%      99%     100% 
+   0.001   41.805  139.128  248.216  364.813  486.613  930.023 1499.999 

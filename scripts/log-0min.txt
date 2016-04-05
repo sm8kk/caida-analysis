@@ -1,0 +1,10 @@
+Working on file /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-130000.UTC.anon-38408194.txt
+Executing : time python ../pre-concatenate/extract-flowIDs-start-min.py /if13/sm8kk/flowFiles/equinix-sanjose.dirA.20140619-130000.UTC.anon-38408194.txt /if13/sm8kk/caida-analysis-results/abnormalFlow/130000_ab.txt /if13/sm8kk/caida-analysis-results/completedFlow/130000_com.txt /if13/sm8kk/caida-analysis-results/ncompletedFlow/130000_nc.txt 5
+ The minuite is: 0
+
+ The threshold is 1403182855000000
+
+ The number of TCP flow is: 1455998
+
+ The number of other flow is: 332635
+
